@@ -40,6 +40,8 @@ export default function Layout() {
   { name: "Booking", href: "/booking" },
   { name: "Contact Center", href: "#contact-center" },
   { name: "Pricing", href: "/pricing" },
+  { name: "Get Started", href: "/get-started" },
+
 
 
 
