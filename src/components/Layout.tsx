@@ -42,7 +42,7 @@ export default function Layout() {
       <SiteBackgroundSlot />
       <SectionErrorBoundary name="navbar">
         <NavbarFullscreenStatic
-      logo="HubServices"
+      logo="Vinto Global"
       ctaButton={{
         text: "Contact Us",
         href: "#contact",
