@@ -1,124 +1,39 @@
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
-import HeroBillboard from "@/components/sections/hero/HeroBillboard";
-import FeaturesTaggedCards from "@/components/sections/features/FeaturesTaggedCards";
+import Button from "@/components/ui/Button";
+import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
+import TextAnimation from "@/components/ui/TextAnimation";
+import ImageOrVideo from "@/components/ui/ImageOrVideo";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { cls } from "@/lib/utils";
 import ContactSplitForm from "@/components/sections/contact/ContactSplitForm";
 import FaqSimple from "@/components/sections/faq/FaqSimple";
-import FooterSimple from "@/components/sections/footer/FooterSimple";
 
 export default function LaundryDropOffPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <NavbarCentered
-        logo="CleanExpress Laundry"
-        navItems={routes.map((r) => ({ name: r.label, href: r.path }))}
-        ctaButton={{ text: "Log Drop-Off", href: "#register-dropoff" }}
-      />
-
-      <HeroBillboard
-        tag="Quick & Easy Drop-Off"
-        title="Register Your Laundry Drop-Off Point"
-        description="Dropped off your clothes at one of our partner locations? Log your drop-off details now so our team can scan, wash, and update your order instantly."
-        primaryButton={{ text: "Log Drop-Off Now", href: "#register-dropoff" }}
-        secondaryButton={{ text: "Find Pickup Points", href: "#locations" }}
-        imageSrc="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=1200&q=80"
+    <>
+      <div data-webild-section="HeroSplit"><section aria-label="Hero section" className="relative flex items-center h-fit md:h-svh pt-25 pb-20 md:py-0"><HeroBackgroundSlot /><div className="flex flex-col md:flex-row items-center gap-12 md:gap-20 w-content-width mx-auto"><div className="w-full md:w-1/2"><div className="flex flex-col items-center md:items-start gap-3"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Vinto Global Drop-Off</p></div><TextAnimation text="Drop Off Your Garments at Any Partner Station" variant="fade-blur" gradientText={true} tag="h1" className="text-7xl 2xl:text-8xl leading-[1.15] font-semibold text-center md:text-left text-balance" /><TextAnimation text="Effortless laundry management tailored for urban professionals. Select your drop-off location, log your order details, and let our team care for the rest." variant="fade-blur" gradientText={false} tag="p" className="md:max-w-8/10 text-lg md:text-xl leading-snug text-center md:text-left text-balance" /><div className="flex flex-wrap max-md:justify-center gap-3 mt-2 md:mt-3"><Button text="Select Station" href="#pickup-points" variant="primary" /><Button text="How It Works" href="#how-it-works" variant="secondary" animationDelay={0.1} /></div></div></div><ScrollReveal variant="fade-blur" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh] p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/modern-laundromat-with-clean-dryers-washing-machines_23-2149258950.jpg" /></ScrollReveal></div></section></div>
+      <div data-webild-section="FeaturesDetailedSteps"><section aria-label="Features detailed steps section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center w-content-width mx-auto gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>SEAMLESS DROP-OFF</p></div><TextAnimation text="How Vinto Laundry Drop-Off Works" variant="slide-up" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Effortlessly drop off your clothes at any Vinto Global station. Specify your station and track care status in real time." variant="slide-up" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Find Drop Point" href="#locations" variant="primary" /><Button text="Schedule Pickup" href="/schedule" variant="secondary" animationDelay={0.1} /></div></div><div className="flex flex-col w-content-width mx-auto gap-5"><ScrollReveal variant="fade-blur" key="Select Your Station" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>STEP 01</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Select Your Station</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Choose from conveniently located drop-off points near you</h4><p className="text-base md:text-lg leading-snug text-balance">Select your designated Vinto station in the app to notify our team of your incoming garments.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/laundry-basket-with-clean-towels_23-2148213898.jpg" /></div></div></ScrollReveal>
+<ScrollReveal variant="fade-blur" key="Bag & Tag Your Garments" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>STEP 02</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Bag & Tag Your Garments</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Secure clothes with personalized account tags</h4><p className="text-base md:text-lg leading-snug text-balance">Place your garments into a reusable Vinto smart bag and confirm your care preferences online.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/front-view-clothes-hanging-rack_23-2149313264.jpg" /></div></div></ScrollReveal>
+<ScrollReveal variant="fade-blur" key="Track Washing Progress" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>STEP 03</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Track Washing Progress</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Receive live updates from deposit to pressing</h4><p className="text-base md:text-lg leading-snug text-balance">Get real-time mobile notifications as your items move through our premium cleaning cycle.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/woman-holding-phone-laundromat_23-2149237302.jpg" /></div></div></ScrollReveal>
+<ScrollReveal variant="fade-blur" key="Collect Crisp & Fresh" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>STEP 04</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Collect Crisp & Fresh</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Pick up at your convenience using your secure code</h4><p className="text-base md:text-lg leading-snug text-balance">Retrieve your folded, ready-to-wear laundry from your chosen pickup point at your schedule.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/clean-folded-clothes-stack_23-2148213880.jpg" /></div></div></ScrollReveal></div></div></section></div>
+      <div data-webild-section="ContactSplitForm"><ContactSplitForm
+        tag="Express Drop-Off"
+        title="Confirm Your Drop-Off Location"
+        description="Notify our team which Vinto Global pickup point you used so we can fast-track your laundry care."
+        inputs={[{"name":"fullName","type":"text","placeholder":"Full Name","required":true},{"name":"contactInfo","type":"email","placeholder":"Email Address or Mobile","required":true},{"name":"pickupPoint","type":"text","placeholder":"Pickup Point (e.g., Downtown Hub)","required":true},{"name":"bagId","type":"text","placeholder":"Garment Bag Tag #","required":false}]}
+        textarea={{"name":"specialInstructions","placeholder":"Special garment care or fabric instructions...","rows":3,"required":false}}
+        buttonText="Confirm Drop-Off"
+        imageSrc="https://img.freepik.com/free-photo/woman-putting-dirty-clothes-washing-machine-laundry-room_23-2149341499.jpg"
         textAnimation="slide-up"
-      />
-
-      <div id="locations">
-        <FeaturesTaggedCards
-          tag="Pickup Network"
-          title="Our Drop-Off Pickup Points"
-          description="Choose from our automated smart lockers or partner counter locations across the city."
-          items={[
-            {
-              tag: "Downtown Hub",
-              title: "102 Metro Plaza - Locker Station A",
-              description: "24/7 self-service lockers with automated bag scanning and 4-hour express service.",
-              primaryButton: { text: "Select Location", href: "#register-dropoff" },
-            },
-            {
-              tag: "Westside Market",
-              title: "458 West Avenue Counter",
-              description: "Attended counter open 7 AM - 9 PM daily. Hanger care & dry cleaning available.",
-              primaryButton: { text: "Select Location", href: "#register-dropoff" },
-            },
-            {
-              tag: "University District",
-              title: "Campus Student Hub #12",
-              description: "Discount drop-off point with instant QR registration for student accounts.",
-              primaryButton: { text: "Select Location", href: "#register-dropoff" },
-            },
-          ]}
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <div id="register-dropoff">
-        <ContactSplitForm
-          tag="Drop-Off Registration"
-          title="Confirm Which Location You Used"
-          description="Submit your details below so our courier team can pull your clothes bag from the pickup point without delay."
-          inputs={[
-            { name: "fullName", type: "text", placeholder: "Your Full Name", required: true },
-            { name: "phone", type: "tel", placeholder: "Mobile Number (for SMS tracking)", required: true },
-            { name: "pickupPoint", type: "text", placeholder: "Pickup Point Name or Locker ID", required: true },
-            { name: "bagCount", type: "number", placeholder: "Number of Laundry Bags Dropped", required: true },
-          ]}
-          textarea={{ name: "specialInstructions", placeholder: "Special requests (e.g. Gentle wash, separate darks, fabric softener preferences)...", rows: 3 }}
-          buttonText="Submit Drop-Off Log"
-          imageSrc="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1200&q=80"
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <FaqSimple
-        tag="Help & Support"
-        title="Drop-Off Questions"
-        description="Need help registering your clothes drop-off?"
-        items={[
-          {
-            question: "How do I tag my clothes bag at the drop-off point?",
-            answer: "Attach the reusable QR tag provided in your welcome bag or write your registered phone number clearly on the tag.",
-          },
-          {
-            question: "What is the turnaround time after I submit this form?",
-            answer: "Items logged before 10 AM are returned within 24 hours. Express items are ready the same evening.",
-          },
-          {
-            question: "What if I forgot which locker number I deposited into?",
-            answer: "Enter the pickup point name and approximate time. Our couriers scan all new deposits upon arrival.",
-          },
-        ]}
+      /></div>
+      <div data-webild-section="FaqSimple"><FaqSimple
+        tag="Drop-Off Guide"
+        title="Drop-Off & Station FAQs"
+        description="Everything you need to know about using Vinto Global drop-off points and seamless order tracking."
+        primaryButton={{"text":"Find Station","href":"#locations"}}
+        secondaryButton={{"text":"Contact Support","href":"#support"}}
         textAnimation="slide-up"
-      />
-
-      <FooterSimple
-        brand="CleanExpress"
-        columns={[
-          {
-            title: "Services",
-            items: [
-              { label: "Wash & Fold", href: "#" },
-              { label: "Pickup Locations", href: "#locations" },
-              { label: "Express Wash", href: "#" },
-            ],
-          },
-          {
-            title: "Support",
-            items: [
-              { label: "Drop-Off Guide", href: "#" },
-              { label: "Tracking", href: "#" },
-              { label: "Contact Us", href: "#" },
-            ],
-          },
-        ]}
-        copyright="© 2025 CleanExpress Laundry Systems. All rights reserved."
-        links={[
-          { label: "Privacy Policy", href: "#" },
-          { label: "Terms of Service", href: "#" },
-        ]}
-      />
-    </div>
+        items={[{"question":"How do I specify my drop-off location?","answer":"Select your preferred Vinto Global pickup station in our app or web form when scheduling your order prior to dropping off your bag."},{"question":"What are the drop-off station operating hours?","answer":"Most flagship locations feature 24/7 automated lockers, while partner stations operate daily from 7:00 AM to 9:00 PM."},{"question":"How is my laundry identified at the drop-off point?","answer":"Scan your personal Vinto QR tag at the drop-off kiosk or attach a printed order slip to your laundry bag before placing it in the drop slot."},{"question":"How quickly will my clothes be ready?","answer":"Standard drop-off service completes within 24 hours. Express turnaround options are available for pickup in under 6 hours."},{"question":"Can I pick up my clean laundry at a different station?","answer":"Yes, you can select a different Vinto Global pickup station for final retrieval up until cleaning begins."}]}
+      /></div>
+    </>
   );
 }
