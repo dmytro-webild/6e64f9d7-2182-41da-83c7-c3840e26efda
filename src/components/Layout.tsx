@@ -39,6 +39,8 @@ export default function Layout() {
   { name: "Laundry Drop Off", href: "/laundry-drop-off" },
   { name: "Booking", href: "/booking" },
   { name: "Contact Center", href: "#contact-center" },
+  { name: "Pricing", href: "/pricing" },
+
 
 
 
