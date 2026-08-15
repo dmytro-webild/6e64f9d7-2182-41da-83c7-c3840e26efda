@@ -1,125 +1,28 @@
-import React from "react";
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
-import HeroSplit from "@/components/sections/hero/HeroSplit";
 import AboutFeaturesSplit from "@/components/sections/about/AboutFeaturesSplit";
-import FeaturesTaggedCards from "@/components/sections/features/FeaturesTaggedCards";
-import ContactCta from "@/components/sections/contact/ContactCta";
-import FooterSimple from "@/components/sections/footer/FooterSimple";
+import FeaturesAlternatingSplit from "@/components/sections/features/FeaturesAlternatingSplit";
 
 export default function AboutPage() {
-  const navItems = routes.map((r) => ({ name: r.label, href: r.path }));
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <NavbarCentered
-        logo="OmniHub"
-        navItems={navItems}
-        ctaButton={{ text: "Book Service", href: "/contact" }}
-      />
-
-      <HeroSplit
-        tag="Lifestyle & Entertainment"
-        title="Laundry, Gaming & Beauty Salon All Under One Roof"
-        description="We are a modern lifestyle destination combining convenient laundry services, exciting gaming lounges, and premium beauty salon care into a single seamless experience."
-        primaryButton={{ text: "Explore Services", href: "#services" }}
-        secondaryButton={{ text: "Our Story", href: "#story" }}
-        imageSrc="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80"
-        textAnimation="slide-up"
-      />
-
-      <div id="story">
-        <AboutFeaturesSplit
-          tag="Our Philosophy"
-          title="Designed for Your Modern Routine"
-          description="We created OmniHub to eliminate wasted time and make routine care enjoyable. Drop off your wardrobe, meet up for games, or refresh your look with expert stylists."
-          items={[
-            {
-              icon: "🧼",
-              title: "Garment Care",
-              description: "Washing, drying, ironing, and professional clothing care."
-            },
-            {
-              icon: "🎮",
-              title: "Gaming Lounge",
-              description: "High-spec PCs and consoles for relaxed social gaming or tournaments."
-            },
-            {
-              icon: "✂️",
-              title: "Beauty Salon",
-              description: "Quality haircuts, grooming, styling, and rejuvenating treatments."
-            }
-          ]}
-          imageSrc="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <div id="services">
-        <FeaturesTaggedCards
-          tag="What We Offer"
-          title="Three Experiences, One Destination"
-          description="Step into a vibrant environment engineered for convenience, entertainment, and personal care."
-          items={[
-            {
-              tag: "Clean & Fresh",
-              title: "Express Laundry & Garment Care",
-              description: "Relax in our lounge while our team washes, irons, and carefully folds your garments.",
-              imageSrc: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1200&q=80",
-              primaryButton: { text: "View Laundry Rates", href: "/contact" }
-            },
-            {
-              tag: "Play & Connect",
-              title: "Next-Gen Gaming House",
-              description: "Immerse yourself in top-tier gaming gear and compete or hang out with friends.",
-              imageSrc: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
-              primaryButton: { text: "Book a Console", href: "/contact" }
-            },
-            {
-              tag: "Look & Feel Great",
-              title: "Full-Service Beauty Salon",
-              description: "Treat yourself to modern haircuts, beard grooming, coloring, and self-care treatments.",
-              imageSrc: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80",
-              primaryButton: { text: "Book Stylist", href: "/contact" }
-            }
-          ]}
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <ContactCta
-        tag="Visit Us Today"
-        text="Ready to elevate your day? Experience the convenience of OmniHub today."
-        primaryButton={{ text: "Schedule Appointment", href: "/contact" }}
-        secondaryButton={{ text: "Get Directions", href: "/contact" }}
-        textAnimation="slide-up"
-      />
-
-      <FooterSimple
-        brand="OmniHub"
-        columns={[
-          {
-            title: "Services",
-            items: [
-              { label: "Laundry Care", href: "#services" },
-              { label: "Gaming House", href: "#services" },
-              { label: "Beauty Salon", href: "#services" }
-            ]
-          },
-          {
-            title: "Company",
-            items: [
-              { label: "About Us", href: "/about" },
-              { label: "Contact Us", href: "/contact" }
-            ]
-          }
-        ]}
-        copyright="© 2025 OmniHub. All rights reserved."
-        links={[
-          { label: "Privacy Policy", href: "#" },
-          { label: "Terms of Service", href: "#" }
-        ]}
-      />
-    </div>
+    <>
+      <div data-webild-section="AboutFeaturesSplit"><AboutFeaturesSplit
+        tag="The Vinto Concept"
+        title="Three Distinct Experiences Under One Roof"
+        description="Vinto Global combines professional laundry care, an immersive gaming lounge, and a modern beauty salon into one seamless destination tailored to your modern lifestyle."
+        primaryButton={{"text":"Explore Services","href":"#services"}}
+        secondaryButton={{"text":"Get in Touch","href":"/contact"}}
+        items={[{"icon":"Shirt","title":"Professional Laundry Care","description":"Expert washing, drying, ironing, and garment care delivered with exceptional speed and attention."},{"icon":"Gamepad2","title":"High-Energy Gaming Lounge","description":"A vibrant environment to relax, compete on high-end setups, and connect with friends."},{"icon":"Scissors","title":"Premium Beauty Salon","description":"Precision haircuts, contemporary hairstyling, and grooming services from expert stylists."},{"icon":"Sparkles","title":"Ultimate Convenience","description":"Streamline your day by getting groomed and dropping off laundry while enjoying top-tier gaming."}]}
+        imageSrc="https://img.freepik.com/free-photo/stylish-modern-lounge-interior_23-2149023451.jpg"
+        textAnimation="fade-blur"
+      /></div>
+      <div data-webild-section="FeaturesAlternatingSplit"><FeaturesAlternatingSplit
+        tag="THE VINTO EXPERIENCE"
+        title="Three Essential Services under One Roof"
+        description="Vinto Global brings professional garment care, high-energy gaming, and premium salon styling together into one contemporary destination."
+        primaryButton={{"text":"Get Started","href":"/contact"}}
+        secondaryButton={{"text":"View Pricing","href":"/pricing"}}
+        items={[{"title":"Professional Laundry & Clothing Care","description":"From express washing and delicate drying to custom ironing, we keep your wardrobe impeccably fresh while you relax.","imageSrc":"https://img.freepik.com/free-photo/laundry-room-interior-with-washing-machines_23-2149364532.jpg","primaryButton":{"text":"Laundry Services","href":"/laundry"}},{"title":"High-Energy Gaming Lounge","description":"Level up your downtime with modern console setups, competitive titles, and comfortable lounge spaces built for community.","imageSrc":"https://img.freepik.com/free-photo/young-friends-playing-video-games-lounge_23-2149175432.jpg","primaryButton":{"text":"Gaming Lounge","href":"/gaming"}},{"title":"Modern Hair & Beauty Salon","description":"Refresh your personal style with expert haircuts, precision grooming, and relaxing treatments in a sleek modern setting.","imageSrc":"https://img.freepik.com/free-photo/hairdresser-styling-hair-client-salon_23-2149187321.jpg","primaryButton":{"text":"Book Salon","href":"/salon"}}]}
+        textAnimation="fade-blur"
+      /></div>
+    </>
   );
 }
