@@ -1,138 +1,37 @@
-import React from "react";
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
-import HeroSplit from "@/components/sections/hero/HeroSplit";
-import FeaturesTaggedCards from "@/components/sections/features/FeaturesTaggedCards";
-import TeamProfileCards from "@/components/sections/team/TeamProfileCards";
-import ContactSplitForm from "@/components/sections/contact/ContactSplitForm";
-import FooterSimple from "@/components/sections/footer/FooterSimple";
+import Button from "@/components/ui/Button";
+import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
+import TextAnimation from "@/components/ui/TextAnimation";
+import ImageOrVideo from "@/components/ui/ImageOrVideo";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { ArrowUpRight, Loader2 } from "lucide-react";
+import GridOrCarousel from "@/components/ui/GridOrCarousel";
+import useProducts from "@/hooks/useProducts";
+import { Check } from "lucide-react";
+import { cls } from "@/lib/utils";
 
 export default function SalonBookingPage() {
-  const navItems = routes.map((r) => ({ name: r.label, href: r.path }));
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <NavbarCentered
-        logo="AURA SALON"
-        navItems={navItems}
-        ctaButton={{ text: "Book Now", href: "#booking-form" }}
-      />
-
-      <HeroSplit
-        tag="Instant Online Reservation"
-        title="Elevate Your Beauty Experience"
-        description="Select bespoke services, choose your preferred expert stylist, and lock in your appointment with seamless instant pre-payment."
-        primaryButton={{ text: "Select Service", href: "#services" }}
-        secondaryButton={{ text: "View Stylists", href: "#stylists" }}
-        imageSrc="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80"
-        textAnimation="slide-up"
-      />
-
-      <div id="services">
-        <FeaturesTaggedCards
-          tag="Curated Menu"
-          title="Bespoke Salon Services"
-          description="Choose from our luxury treatment menu tailored to your hair, skin, and wellness needs."
-          items={[
-            {
-              tag: "Popular",
-              title: "Signature Haircut & Styling",
-              description: "Custom consultation, luxury wash, deep conditioning, precision cut, and signature blowout.",
-              primaryButton: { text: "Select ($85)", href: "#booking-form" },
-              imageSrc: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80",
-            },
-            {
-              tag: "Color Spec",
-              title: "Balayage & Gloss Treatment",
-              description: "Hand-painted highlights with custom toning glaze and bond-building repair treatment.",
-              primaryButton: { text: "Select ($190)", href: "#booking-form" },
-              imageSrc: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
-            },
-            {
-              tag: "Skin & Spa",
-              title: "HydraGlow Facial",
-              description: "Deep botanical exfoliation, lymphatic facial massage, and customized serum infusion.",
-              primaryButton: { text: "Select ($120)", href: "#booking-form" },
-              imageSrc: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
-            },
-          ]}
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <div id="stylists">
-        <TeamProfileCards
-          tag="Expert Artists"
-          title="Choose Your Specialist"
-          description="Our master stylists bring decades of high-fashion and red-carpet artistry directly to you."
-          items={[
-            {
-              title: "Elena Vance",
-              role: "Master Colorist & Cut Specialist",
-              description: "12+ years experience in dimensional balayage and precision cutting.",
-              avatarSrc: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
-            },
-            {
-              title: "Marcus Sterling",
-              role: "Senior Hair Sculptor",
-              description: "Specializes in modern editorial styles, texture transformations, and male grooming.",
-              avatarSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-            },
-            {
-              title: "Sophia Chen",
-              role: "Esthetics & Spa Lead",
-              description: "Certified medical esthetician dedicated to skin revitalization and holistic care.",
-              avatarSrc: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
-            },
-          ]}
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <div id="booking-form">
-        <ContactSplitForm
-          tag="Pre-pay & Confirm"
-          title="Complete Your Reservation"
-          description="Lock in your date, time, and preferred specialist. Pre-payment guarantees zero wait time upon arrival."
-          inputs={[
-            { name: "fullName", type: "text", placeholder: "Full Name", required: true },
-            { name: "email", type: "email", placeholder: "Email Address", required: true },
-            { name: "phone", type: "tel", placeholder: "Phone Number", required: true },
-            { name: "date", type: "date", placeholder: "Preferred Date", required: true },
-          ]}
-          textarea={{ name: "notes", placeholder: "Special requests, hair length/type, or preferred stylist name...", rows: 3 }}
-          buttonText="Pre-Pay & Confirm Booking"
-          imageSrc="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80"
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <FooterSimple
-        brand="AURA SALON"
-        columns={[
-          {
-            title: "Services",
-            items: [
-              { label: "Haircare & Styling", href: "#services" },
-              { label: "Skincare & Facials", href: "#services" },
-              { label: "Nail Artistry", href: "#services" },
-            ],
-          },
-          {
-            title: "Studio",
-            items: [
-              { label: "Our Stylists", href: "#stylists" },
-              { label: "Location & Hours", href: "#booking-form" },
-              { label: "Gift Cards", href: "#" },
-            ],
-          },
-        ]}
-        copyright="© 2025 Aura Salon & Spa. All rights reserved."
-        links={[
-          { label: "Privacy Policy", href: "#" },
-          { label: "Terms of Service", href: "#" },
-        ]}
-      />
-    </div>
+    <>
+      <div data-webild-section="HeroSplit"><section aria-label="Hero section" className="relative flex items-center h-fit md:h-svh pt-25 pb-20 md:py-0"><HeroBackgroundSlot /><div className="flex flex-col md:flex-row items-center gap-12 md:gap-20 w-content-width mx-auto"><div className="w-full md:w-1/2"><div className="flex flex-col items-center md:items-start gap-3"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Bespoke Salon Experience</p></div><TextAnimation text="Reserve Your Master Stylist at Vinto Global" variant="slide-up" gradientText={true} tag="h1" className="text-7xl 2xl:text-8xl leading-[1.15] font-semibold text-center md:text-left text-balance" /><TextAnimation text="Select your tailored hair or beauty treatment, choose your preferred expert stylist, and instantly secure your reservation with seamless pre-payment." variant="slide-up" gradientText={false} tag="p" className="md:max-w-8/10 text-lg md:text-xl leading-snug text-center md:text-left text-balance" /><div className="flex flex-wrap max-md:justify-center gap-3 mt-2 md:mt-3"><Button text="Book Appointment" href="#booking-flow" variant="primary" /><Button text="View Pricing" href="/pricing" variant="secondary" animationDelay={0.1} /></div></div></div><ScrollReveal variant="fade-blur" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh] p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/side-view-hairdresser-styling-hair_23-2149352618.jpg" /></ScrollReveal></div></section></div>
+      <div data-webild-section="ProductVariantCards"><section aria-label="Products section" className="py-20"><div className="w-content-width mx-auto flex justify-center"><Loader2 className="size-8 animate-spin text-foreground" strokeWidth={1.5} /></div></section></div>
+      <div data-webild-section="TeamOverlayCards"><section aria-label="Team section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center gap-2 w-content-width mx-auto"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Master Stylists</p></div><TextAnimation text="Meet Our Salon Artistry Team" variant="slide-up" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Select your preferred specialist for tailored hair transformations, precision cuts, and luxury treatments at Vinto Global." variant="slide-up" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Book Artist" href="#booking" variant="primary" /><Button text="View Pricing" href="#services" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade-blur"><GridOrCarousel><div key="Elena Vance" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/portrait-young-female-hairdresser-holding-scissors_23-2148880289.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Elena Vance</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Creative Director & Master Colorist</p></div></div></div></div>
+<div key="Marcus Sterling" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/portrait-handsome-male-hairstylist-standing-salon_23-2148880320.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Marcus Sterling</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Executive Hair Stylist</p></div></div></div></div>
+<div key="Sophia Al-Mansoor" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/young-woman-getting-hair-cut-beauty-salon_23-2149182355.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Sophia Al-Mansoor</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Senior Aesthetician & Skin Lead</p></div></div></div></div>
+<div key="Julien Laurent" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/front-view-hairstylist-comb-brush_23-2148880301.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Julien Laurent</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Extensions & Styling Specialist</p></div></div></div></div></GridOrCarousel></ScrollReveal></div></section></div>
+      <div data-webild-section="PricingHighlightedCards"><section aria-label="Pricing section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center w-content-width mx-auto gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Curated Salon Packages</p></div><TextAnimation text="Bespoke Treatments & Transparent Pricing" variant="fade-blur" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Select your preferred salon experience, reserve top-tier master stylists, and effortlessly lock in your appointment." variant="fade-blur" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Book Service" href="/salon-booking/reserve" variant="primary" /><Button text="View Stylists" href="#stylists" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade"><GridOrCarousel><div key="Signature" className="flex flex-col h-full"><div className="px-5 py-2 text-base invisible">placeholder</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$120</span><span className="text-base font-medium">Signature</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Personalized style consultation" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Personalized style consultation</span></div>
+<div key="Precision haircut & finish" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Precision haircut & finish</span></div>
+<div key="Nourishing scalp massage" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Nourishing scalp massage</span></div>
+<div key="Complimentary luxury beverage" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Complimentary luxury beverage</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve Signature" href="/salon-booking/reserve?plan=signature" variant="primary" className="w-full" /></div></div></div>
+<div key="Most Requested" className="flex flex-col h-full"><div className="px-5 py-2 text-base text-center primary-button rounded-t text-primary-cta-text">Includes Master Stylist Choice</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded-t-none rounded-b"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$280</span><span className="text-base font-medium">Most Requested</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Full bespoke balayage or color" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Full bespoke balayage or color</span></div>
+<div key="Deep restorative botanical mask" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Deep restorative botanical mask</span></div>
+<div key="Master stylist selection" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Master stylist selection</span></div>
+<div key="Precision cut & signature blow-out" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Precision cut & signature blow-out</span></div>
+<div key="Post-treatment care kit" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Post-treatment care kit</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Book Bespoke Plan" href="/salon-booking/reserve?plan=bespoke" variant="primary" className="w-full" /><Button text="Stylist Advice" href="#stylists" variant="secondary" className="w-full" /></div></div></div>
+<div key="VIP Suite" className="flex flex-col h-full"><div className="px-5 py-2 text-base invisible">placeholder</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$450</span><span className="text-base font-medium">VIP Suite</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Private VIP styling suite access" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Private VIP styling suite access</span></div>
+<div key="Lead Creative Director reserved" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Lead Creative Director reserved</span></div>
+<div key="Full hair, scalp & gloss therapy" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Full hair, scalp & gloss therapy</span></div>
+<div key="Artisanal refreshments & champagne" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Artisanal refreshments & champagne</span></div>
+<div key="Flexible reschedule guarantee" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Flexible reschedule guarantee</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve VIP Suite" href="/salon-booking/reserve?plan=vip" variant="primary" className="w-full" /></div></div></div></GridOrCarousel></ScrollReveal></div></section></div>
+    </>
   );
 }
