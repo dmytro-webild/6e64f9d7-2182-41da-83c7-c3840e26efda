@@ -21,21 +21,41 @@ const ContactInline = () => {
           <div className="flex flex-col items-center gap-8 md:gap-10 py-20 px-8 rounded card">
             <div className="flex flex-col items-center gap-2">
               <div className="px-3 py-1 mb-1 text-sm card rounded w-fit">
-                <p>{"Start Today"}</p>
+                <p>{"Salon Promotions & Offers"}</p>
               </div>
 
               <TextAnimation
-                text={"Ready to simplify your errands?"}
+                text={"Subscribe for Exclusive Salon Deals"}
                 variant={"slide-up"}
                 gradientText={true}
                 tag="h2"
                 className="md:max-w-8/10 text-5xl 2xl:text-6xl leading-[1.15] font-semibold text-center text-balance"
               />
 
-              <div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3">
-                <Button text={primaryButton.text} href={primaryButton.href} variant="primary" />
-                <Button text={secondaryButton.text} href={secondaryButton.href} variant="secondary" animationDelay={0.1} />
-              </div>
+              <p className="text-accent text-center max-w-lg mt-2 text-base">
+                Join our newsletter to receive exclusive salon discounts, VIP appointment perks, and beauty updates.
+              </p>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  alert("Thank you for subscribing! Check your email for your exclusive salon promotion code.");
+                }}
+                className="flex flex-col sm:flex-row items-center gap-3 mt-4 w-full max-w-md"
+              >
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  required
+                  className="w-full px-4 py-3 text-sm rounded-lg card text-foreground border border-white/10 placeholder:text-accent focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto px-6 py-3 text-sm font-medium primary-button rounded-lg whitespace-nowrap cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
         </ScrollReveal>
