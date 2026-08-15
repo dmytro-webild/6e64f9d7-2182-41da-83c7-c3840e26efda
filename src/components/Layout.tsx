@@ -36,6 +36,8 @@ export default function Layout() {
     "href": "#metrics"
   },
   { name: "Complaint", href: "/complaint" },
+  { name: "Laundry Drop Off", href: "/laundry-drop-off" },
+
 
 ];
 
