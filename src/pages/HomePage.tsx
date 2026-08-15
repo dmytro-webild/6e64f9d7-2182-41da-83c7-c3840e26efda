@@ -20,6 +20,9 @@ import ContactSection from './HomePage/sections/Contact';
 {/* webild-stub @2026-08-15T09:08:17.397Z: Create a new salon booking page where customers can select specific services, choose their preferred staff member, and pay for the booking online before arrival. */}
 
 import TrustBadgesSection from './HomePage/sections/TrustBadges';
+
+{/* webild-stub @2026-08-15T11:37:12.120Z: Develop a dedicated game booking page to allow customers to select specific services, choose staff members, and process payments securely before arrival. */}
+
 import ContactCenterSection from './HomePage/sections/ContactCenter';export default function HomePage(): React.JSX.Element {
   return (
 <>
