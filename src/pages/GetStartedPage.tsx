@@ -1,75 +1,28 @@
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
-import HeroBillboardFeatures from "@/components/sections/hero/HeroBillboardFeatures";
+import Button from "@/components/ui/Button";
+import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
+import TextAnimation from "@/components/ui/TextAnimation";
+import ImageOrVideo from "@/components/ui/ImageOrVideo";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { cls } from "@/lib/utils";
 import ContactSplitForm from "@/components/sections/contact/ContactSplitForm";
-import FaqSimple from "@/components/sections/faq/FaqSimple";
-import FooterSimple from "@/components/sections/footer/FooterSimple";
 
 export default function GetStartedPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <NavbarCentered
-        logo="Platform"
-        navItems={routes.map((r) => ({ name: r.label, href: r.path }))}
-        ctaButton={{ text: "Sign In", href: "/get-started" }}
-      />
-
-      <main className="space-y-16 py-8">
-        <HeroBillboardFeatures
-          badge="Quick Onboarding"
-          title="Get Up and Running in Minutes"
-          description="Follow our intuitive setup process to configure your workspace, invite your team, and deploy your first project effortlessly."
-          primaryButton={{ text: "Create Free Account", href: "#register" }}
-          secondaryButton={{ text: "Read Documentation", href: "#faq" }}
-          features={[
-            { icon: "UserPlus", title: "1. Create Account", description: "Sign up in seconds with email or single sign-on." },
-            { icon: "Sliders", title: "2. Configure Space", description: "Personalize dashboard preferences and integrations." },
-            { icon: "Zap", title: "3. Launch Workflow", description: "Automate your builds and scale with total confidence." }
-          ]}
-          imageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-          textAnimation="slide-up"
-        />
-
-        <div id="register">
-          <ContactSplitForm
-            tag="Sign Up"
-            title="Start your 14-day free trial"
-            description="No credit card required. Gain immediate access to all pro features and modern deployment tooling."
-            inputs={[
-              { name: "fullName", type: "text", placeholder: "Full Name", required: true },
-              { name: "email", type: "email", placeholder: "Work Email", required: true },
-              { name: "password", type: "password", placeholder: "Password (8+ characters)", required: true }
-            ]}
-            buttonText="Create Account"
-            imageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
-            textAnimation="fade-blur"
-          />
-        </div>
-
-        <div id="faq">
-          <FaqSimple
-            tag="Questions"
-            title="Frequently Asked Questions"
-            description="Everything you need to know about getting started and team onboarding."
-            items={[
-              { question: "Is there a free trial available?", answer: "Yes, you get full access to all features for 14 days without entering credit card details." },
-              { question: "Can I invite my entire team?", answer: "Yes, you can invite unlimited team members to collaborate on your projects right away." },
-              { question: "How long does onboarding take?", answer: "Most teams are fully configured and deployed in less than 10 minutes." }
-            ]}
-            textAnimation="slide-up"
-          />
-        </div>
-      </main>
-
-      <FooterSimple
-        brand="Platform"
-        columns={[
-          { title: "Product", items: [{ label: "Features", href: "#" }, { label: "Pricing", href: "#" }] },
-          { title: "Resources", items: [{ label: "Documentation", href: "#" }, { label: "Guides", href: "#" }] }
-        ]}
-        copyright="© 2025 Platform Inc. All rights reserved."
-        links={[{ label: "Privacy Policy", href: "#" }, { label: "Terms of Service", href: "#" }]}
-      />
-    </div>
+    <>
+      <div data-webild-section="HeroSplit"><section aria-label="Hero section" className="relative flex items-center h-fit md:h-svh pt-25 pb-20 md:py-0"><HeroBackgroundSlot /><div className="flex flex-col md:flex-row items-center gap-12 md:gap-20 w-content-width mx-auto"><div className="w-full md:w-1/2"><div className="flex flex-col items-center md:items-start gap-3"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Get Started</p></div><TextAnimation text="Your Seamless Gateway to Vinto Global" variant="slide-up" gradientText={true} tag="h1" className="text-7xl 2xl:text-8xl leading-[1.15] font-semibold text-center md:text-left text-balance" /><TextAnimation text="Choose your service or set up a unified account. Reserve luxury salon styling, schedule premium laundry drop-offs, or book your next gaming session in seconds." variant="slide-up" gradientText={false} tag="p" className="md:max-w-8/10 text-lg md:text-xl leading-snug text-center md:text-left text-balance" /><div className="flex flex-wrap max-md:justify-center gap-3 mt-2 md:mt-3"><Button text="Explore Services" href="#booking" variant="primary" /><Button text="View Pricing" href="/pricing" variant="secondary" animationDelay={0.1} /></div></div></div><ScrollReveal variant="fade-blur" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh] p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/modern-luxury-lounge-interior-design_23-2151015340.jpg" /></ScrollReveal></div></section></div>
+      <div data-webild-section="FeaturesDetailedSteps"><section aria-label="Features detailed steps section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center w-content-width mx-auto gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>How It Works</p></div><TextAnimation text="Your Journey to Vinto Global Starts Here" variant="slide-up" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Get full access to our premium laundry service, luxury salon styling, and VIP gaming lounge in three simple steps." variant="slide-up" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Get Started" href="#register" variant="primary" /><Button text="View Pricing" href="/pricing" variant="secondary" animationDelay={0.1} /></div></div><div className="flex flex-col w-content-width mx-auto gap-5"><ScrollReveal variant="fade-blur" key="Create Your Vinto Profile" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Step 01</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Create Your Vinto Profile</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Single account for all experiences</h4><p className="text-base md:text-lg leading-snug text-balance">Register in seconds to seamlessly schedule laundry pick-ups, salon appointments, and gaming sessions.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/woman-using-mobile-phone-modern-cafe_23-2149186258.jpg" /></div></div></ScrollReveal>
+<ScrollReveal variant="fade-blur" key="Select Service & Reserve" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Step 02</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Select Service & Reserve</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Tailored options for your day</h4><p className="text-base md:text-lg leading-snug text-balance">Book a hair treatment, schedule a dry cleaning drop-off, or lock in dedicated high-spec PC lounge time.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/interior-modern-laundry-room-with-washing-machines_23-2149237583.jpg" /></div></div></ScrollReveal>
+<ScrollReveal variant="fade-blur" key="Arrive and Relax" className="flex flex-col md:flex-row justify-between 2xl:w-8/10 mx-auto gap-6 p-6 md:p-10 card rounded overflow-hidden"><div className="flex flex-col justify-between w-full md:w-1/2"><div className="flex flex-col gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Step 03</p></div><h3 className="text-7xl md:text-8xl font-semibold leading-[1.15] text-balance">Arrive and Relax</h3></div><div className="block md:hidden w-full h-px my-5 bg-accent/20" /><div className="flex flex-col gap-2"><h4 className="text-2xl md:text-3xl font-semibold leading-snug text-balance">Seamless digital check-in</h4><p className="text-base md:text-lg leading-snug text-balance">Show your in-app pass at our hub to enjoy complimentary drinks, expert care, and elite entertainment.</p></div></div><div className="flex flex-col w-full md:w-35/100 gap-10"><span className="hidden md:block self-end text-7xl md:text-8xl font-semibold text-accent"></span><div className="aspect-square rounded overflow-hidden -rotate-3"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/young-man-playing-video-game-lounge_23-2149023485.jpg" /></div></div></ScrollReveal></div></div></section></div>
+      <div data-webild-section="ContactSplitForm"><ContactSplitForm
+        tag="Get Started"
+        title="Begin Your Vinto Experience"
+        description="Select your desired services or schedule a visit to explore our premium laundry, luxury salon, and state-of-the-art gaming lounge."
+        inputs={[{"name":"fullName","type":"text","placeholder":"Enter your full name","required":true},{"name":"email","type":"email","placeholder":"you@example.com","required":true},{"name":"serviceInterest","type":"text","placeholder":"Salon, Laundry Drop-Off, or Gaming Lounge","required":true}]}
+        textarea={{"name":"notes","placeholder":"Tell us about your preferred date, time, or custom request...","rows":4,"required":false}}
+        buttonText="Confirm Booking Request"
+        imageSrc="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80"
+        textAnimation="slide-up"
+      /></div>
+    </>
   );
 }
