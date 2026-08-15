@@ -13,7 +13,7 @@ export default function HeroSection(): React.JSX.Element {
           avatarsSrc={[
             "http://img.b2bpic.net/free-photo/close-up-shot-amused-enthusiastic-good-looking-malaysian-woman-smiling-feeling-positive_176420-44079.jpg",        "http://img.b2bpic.net/free-photo/portrait-business-woman-with-enthusiastic-face-expression-smiling-looking-confident-standing-s_1258-127188.jpg",        "http://img.b2bpic.net/free-photo/content-stylish-student-posing-table_23-2147666655.jpg",        "http://img.b2bpic.net/free-photo/woman-talking-video-call-decorated-kitchen-home_482257-16862.jpg"]}
           avatarText="Trusted by 500+ locals"
-          title="Your Daily Essentials, Elevated."
+          title="Laundry, Styling & Gaming — All Under One Roof."
           description="Seamlessly manage laundry, refresh your style in our salon, and unwind in our premium gaming lounge."
           primaryButton={{
             text: "Book Now",        href: "#contact"}}
