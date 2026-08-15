@@ -1,106 +1,71 @@
-import React from "react";
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
 import HeroSplit from "@/components/sections/hero/HeroSplit";
 import ContactSplitForm from "@/components/sections/contact/ContactSplitForm";
 import FaqSimple from "@/components/sections/faq/FaqSimple";
-import FooterSimple from "@/components/sections/footer/FooterSimple";
 
 export default function ComplaintPage() {
   const handleComplaintSubmit = (data: Record<string, string>) => {
-    console.log("Complaint submitted:", data);
-  };
-
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <NavbarCentered
-        logo="ResolveHub"
-        navItems={routes.map((r) => ({ name: r.label, href: r.path }))}
-        ctaButton={{ text: "File Complaint", href: "#complaint-form" }}
-      />
-
+    console.log("Complaint submitted:", data); }; return ( <div className="min-h-svh bg-background text-foreground space-y-12">
       <HeroSplit
-        tag="Customer Support & Resolution"
-        title="We are Here to Listen and Make Things Right"
-        description="Your feedback helps us maintain high standards. File a formal complaint and our dedicated resolution team will review it within 24 hours."
-        primaryButton={{ text: "Submit Complaint", href: "#complaint-form" }}
-        secondaryButton={{ text: "View Resolution FAQs", href: "#faq" }}
-        imageSrc="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1200&q=80"
+        tag="Support & Grievance Resolution"
+        title="We are Committed to Resolving Your Concerns"
+        description="Your experience matters to us. Submit a formal complaint and our dedicated dispute resolution team will review and address your ticket within 24 hours."
+        primaryButton={{ text: "File Complaint", href: "#complaint-form" }}
+        secondaryButton={{ text: "Resolution Process", href: "#resolution-faq" }}
+        imageSrc=""
         textAnimation="slide-up"
       />
 
       <div id="complaint-form">
         <ContactSplitForm
-          tag="Submit Ticket"
-          title="File a Formal Complaint"
-          description="Provide details regarding your issue so we can investigate and resolve it promptly."
+          tag="Formal Grievance Form"
+          title="Submit Your Complaint Ticket"
+          description="Please provide detailed information regarding your issue so we can conduct a thorough investigation and resolve it promptly."
           inputs={[
-            { name: "fullName", type: "text", placeholder: "Your Full Name", required: true },
-            { name: "email", type: "email", placeholder: "Your Email Address", required: true },
+            { name: "fullName", type: "text", placeholder: "Full Name", required: true },
+            { name: "email", type: "email", placeholder: "Email Address", required: true },
+            { name: "phone", type: "tel", placeholder: "Phone Number", required: false },
             { name: "orderId", type: "text", placeholder: "Order or Reference Number", required: false },
-            { name: "subject", type: "text", placeholder: "Complaint Category / Subject", required: true }
+            { name: "subject", type: "text", placeholder: "Complaint Category / Subject", required: true },
           ]}
           textarea={{
             name: "details",
-            placeholder: "Describe what happened in detail...",
+            placeholder: "Describe the issue in detail, including dates and relevant particulars...",
             rows: 5,
-            required: true
+            required: true,
           }}
           buttonText="Submit Complaint Ticket"
           onSubmit={handleComplaintSubmit}
-          imageSrc="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
+          imageSrc=""
           textAnimation="slide-up"
         />
       </div>
 
-      <div id="faq">
+      <div id="resolution-faq">
         <FaqSimple
-          tag="Resolution FAQ"
+          tag="Help & Transparency"
           title="Frequently Asked Questions"
-          description="Learn more about our investigation process, timelines, and response policies."
+          description="Find answers to common questions about our grievance handling procedures, response timelines, and escalation paths."
           items={[
             {
-              question: "How long does it take to review a complaint?",
-              answer: "Our resolution team reviews every ticket within 24 business hours and provides an initial response."
+              question: "How quickly will my complaint be processed?",
+              answer: "Our compliance and support team acknowledges all tickets within 12 hours and aims for complete resolution within 24 to 48 business hours.",
             },
             {
-              question: "What information should I include?",
-              answer: "Include relevant reference numbers, dates, transaction details, and a clear description of the issue."
+              question: "What details should I provide in my ticket?",
+              answer: "Including your account or order reference number, transaction date, specific description of what occurred, and any supporting documentation helps us resolve your issue faster.",
             },
             {
-              question: "Can I escalate an unresolved complaint?",
-              answer: "Yes, if you are not satisfied with the initial resolution, your ticket can be escalated to a senior support manager."
-            }
+              question: "What happens after I submit a complaint?",
+              answer: "You will receive an automated ticket confirmation with a tracking reference. A designated resolution officer will review your case and reach out via email or phone with an update.",
+            },
+            {
+              question: "Can I escalate an unresolved issue?",
+              answer: "Yes. If you are unsatisfied with the initial resolution, you can request case escalation to a senior compliance manager through your ticket response.",
+            },
           ]}
           textAnimation="slide-up"
         />
       </div>
-
-      <FooterSimple
-        brand="ResolveHub"
-        columns={[
-          {
-            title: "Support",
-            items: [
-              { label: "Help Center", href: "#" },
-              { label: "File Complaint", href: "#complaint-form" },
-              { label: "Track Status", href: "#" }
-            ]
-          },
-          {
-            title: "Legal",
-            items: [
-              { label: "Privacy Policy", href: "#" },
-              { label: "Terms of Service", href: "#" }
-            ]
-          }
-        ]}
-        copyright="© 2025 ResolveHub Inc. All rights reserved."
-        links={[
-          { label: "Privacy Policy", href: "#" },
-          { label: "Terms of Service", href: "#" }
-        ]}
-      />
     </div>
   );
 }
