@@ -42,6 +42,8 @@ export default function Layout() {
   { name: "Pricing", href: "/pricing" },
   { name: "Get Started", href: "/get-started" },
   { name: "Salon Booking", href: "/salon-booking" },
+  { name: "Services", href: "/services" },
+
 
 
 

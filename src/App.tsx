@@ -8,6 +8,7 @@ import BookingPage from "@/pages/BookingPage";
 import PricingPage from "@/pages/PricingPage";
 import GetStartedPage from "@/pages/GetStartedPage";
 import SalonBookingPage from "@/pages/SalonBookingPage";
+import ServicesPage from "@/pages/ServicesPage";
 export default function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/get-started" element={<GetStartedPage />} />
         <Route path="/salon-booking" element={<SalonBookingPage />} />
+        <Route path="/services" element={<ServicesPage />} />
       </Route>
     </Routes>
   );
