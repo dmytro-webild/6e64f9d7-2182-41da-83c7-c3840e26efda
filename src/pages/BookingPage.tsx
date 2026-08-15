@@ -1,45 +1,96 @@
-import Button from "@/components/ui/Button";
-import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
-import TextAnimation from "@/components/ui/TextAnimation";
-import ImageOrVideo from "@/components/ui/ImageOrVideo";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import { Check } from "lucide-react";
-import GridOrCarousel from "@/components/ui/GridOrCarousel";
-import { cls } from "@/lib/utils";
-import ContactSplitForm from "@/components/sections/contact/ContactSplitForm";
+import { routes } from "@/routes";
+import NavbarCentered from "@/components/ui/NavbarCentered";
+import HeroSplit from "@/components/sections/hero/HeroSplit";
+import FeaturesTaggedCards from "@/components/sections/features/FeaturesTaggedCards";
+import TeamProfileCards from "@/components/sections/team/TeamProfileCards";
+import PricingSimpleCards from "@/components/sections/pricing/PricingSimpleCards";
+import FaqSimple from "@/components/sections/faq/FaqSimple";
+import FooterSimple from "@/components/sections/footer/FooterSimple";
 
 export default function BookingPage() {
+  const navItems = routes.map((r) => ({ name: r.label, href: r.path }));
+
+  const services = [
+    { tag: "PC ARENA", title: "Pro Esports Rigs", description: "RTX 4090 rigs, 240Hz monitors, and mechanical peripherals for competitive play.", primaryButton: { text: "Reserve PC", href: "#packages" } },
+    { tag: "VR ROOM", title: "Full-Motion VR Pods", description: "Immersive 360-degree virtual reality setups equipped with wireless headsets.", primaryButton: { text: "Reserve VR", href: "#packages" } },
+    { tag: "VIP SUITE", title: "Console Lounge", description: "4K OLED displays, comfortable couch seating, and full multiplayer libraries.", primaryButton: { text: "Reserve Suite", href: "#packages" } },
+  ];
+
+  const staff = [
+    { title: "Alex Vance", description: "FPS Coach & Tactical Specialist with 6+ years tournament experience.", avatarSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80", tags: ["FPS Specialist", "Pro Coach"] },
+    { title: "Elena Rostova", description: "VR Host & Sim Racing Instructor trained in setup tuning.", avatarSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80", tags: ["VR Host", "Sim Racing"] },
+    { title: "Marcus Brody", description: "Tournament Director & Fighting Game Coach for private parties.", avatarSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80", tags: ["Event Host", "FGC Specialist"] },
+  ];
+
+  const packages = [
+    { tag: "QUICK PLAY", price: "$25", description: "Ideal for 2-hour solo or duo gaming sessions.", features: ["2 Hours High-Spec Rig", "Choice of Any Title", "Standard Headset"], primaryButton: { text: "Pay $25 Securely", href: "#faq" } },
+    { tag: "PRO PASS", price: "$60", description: "Full half-day access with dedicated staff support.", features: ["5 Hours Any Station", "Dedicated Game Master", "Free Beverage & Snacks", "Priority Hardware"], primaryButton: { text: "Pay $60 Securely", href: "#faq" } },
+    { tag: "VIP SQUAD", price: "$150", description: "Private lounge reserved for up to 6 players.", features: ["4 Hours Private Suite", "Dedicated Coach Included", "Tournament Setup", "Full Catering Support"], primaryButton: { text: "Pay $150 Securely", href: "#faq" } },
+  ];
+
+  const faqs = [
+    { question: "How do I confirm my payment?", answer: "Once you complete checkout online, you will receive an instant digital receipt and QR entry code via email." },
+    { question: "Can I change my assigned staff coach?", answer: "Yes, you can request staff changes up to 2 hours before your scheduled reservation start time." },
+    { question: "Is my payment information secure?", answer: "All transactions are processed using encrypted 256-bit SSL secure payment gateways." },
+  ];
+
   return (
-    <>
-      <div data-webild-section="HeroSplit"><section aria-label="Hero section" className="relative flex items-center h-fit md:h-svh pt-25 pb-20 md:py-0"><HeroBackgroundSlot /><div className="flex flex-col md:flex-row items-center gap-12 md:gap-20 w-content-width mx-auto"><div className="w-full md:w-1/2"><div className="flex flex-col items-center md:items-start gap-3"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Vinto Salon Booking</p></div><TextAnimation text="Reserve Your Signature Beauty Experience" variant="fade-blur" gradientText={true} tag="h1" className="text-7xl 2xl:text-8xl leading-[1.15] font-semibold text-center md:text-left text-balance" /><TextAnimation text="Select your preferred specialists, customize signature styling packages, and confirm your appointment with effortless online booking." variant="fade-blur" gradientText={false} tag="p" className="md:max-w-8/10 text-lg md:text-xl leading-snug text-center md:text-left text-balance" /><div className="flex flex-wrap max-md:justify-center gap-3 mt-2 md:mt-3"><Button text="Book Appointment" href="#booking-services" variant="primary" /><Button text="Explore Stylists" href="#stylists" variant="secondary" animationDelay={0.1} /></div></div></div><ScrollReveal variant="fade-blur" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh] p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/modern-hair-salon-interior_23-2149302630.jpg" /></ScrollReveal></div></section></div>
-      <div data-webild-section="PricingHighlightedCards"><section aria-label="Pricing section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center w-content-width mx-auto gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Salon Packages</p></div><TextAnimation text="Signature Beauty & Hair Packages" variant="fade-blur" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Select your ideal beauty experience and lock in your appointment seamlessly with our master stylists." variant="fade-blur" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="View Specialists" href="#specialists" variant="primary" /><Button text="Contact Salon" href="/contact" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade"><GridOrCarousel><div key="Express Care" className="flex flex-col h-full"><div className="px-5 py-2 text-base invisible">placeholder</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$120</span><span className="text-base font-medium">Express Care</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Signature Scalp Wash & Blowout" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Signature Scalp Wash & Blowout</span></div>
-<div key="Express Hydrating Facial" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Express Hydrating Facial</span></div>
-<div key="Classic Nail Shaping & Polish" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Classic Nail Shaping & Polish</span></div>
-<div key="Senior Stylist Consultation" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Senior Stylist Consultation</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve Essential" href="#book-essential" variant="primary" className="w-full" /></div></div></div>
-<div key="Signature Package" className="flex flex-col h-full"><div className="px-5 py-2 text-base text-center primary-button rounded-t text-primary-cta-text">Most Popular</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded-t-none rounded-b"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$280</span><span className="text-base font-medium">Signature Package</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Bespoke Color or Balayage" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Bespoke Color or Balayage</span></div>
-<div key="Restorative Keratin Glaze" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Restorative Keratin Glaze</span></div>
-<div key="Full Gel Manicure & Lash Lift" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Full Gel Manicure & Lash Lift</span></div>
-<div key="Reserved Master Specialist" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Reserved Master Specialist</span></div>
-<div key="Complimentary Lounge Refreshments" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Complimentary Lounge Refreshments</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve Signature" href="#book-signature" variant="primary" className="w-full" /></div></div></div>
-<div key="VIP Immersion" className="flex flex-col h-full"><div className="px-5 py-2 text-base invisible">placeholder</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$450</span><span className="text-base font-medium">VIP Immersion</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Full Scalp & Hair Repair Therapy" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Full Scalp & Hair Repair Therapy</span></div>
-<div key="Deep Hydration Body Polish" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Deep Hydration Body Polish</span></div>
-<div key="Couture Styling & Evening Makeup" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Couture Styling & Evening Makeup</span></div>
-<div key="Private VIP Suite Reserved" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Private VIP Suite Reserved</span></div>
-<div key="Dedicated Lead Beauty Director" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Dedicated Lead Beauty Director</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve VIP Suite" href="#book-vip" variant="primary" className="w-full" /></div></div></div></GridOrCarousel></ScrollReveal></div></section></div>
-      <div data-webild-section="TeamOverlayCards"><section aria-label="Team section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center gap-2 w-content-width mx-auto"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Master Stylists</p></div><TextAnimation text="Meet Our Signature Salon Specialists" variant="slide-up" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Select your preferred specialist to craft a bespoke styling, coloring, or aesthetic treatment tailored to your distinct look." variant="slide-up" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Book Appointment" href="#booking-form" variant="primary" /><Button text="Explore Services" href="#services" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade-blur"><GridOrCarousel><div key="Elena Rostova" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/portrait-beautiful-woman-hairdresser-salon_23-2149151159.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Elena Rostova</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Creative Director & Hair Artist</p></div></div></div></div>
-<div key="Marcus Vance" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/man-barber-hairdresser-barbershop_1303-20978.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Marcus Vance</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Master Color Specialist</p></div></div></div></div>
-<div key="Sophia Chen" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/young-beautiful-woman-cosmetologist-beauty-salon_1303-25541.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Sophia Chen</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Aesthetic & Skin Therapist</p></div></div></div></div>
-<div key="Antoine Laurent" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/handsome-barber-smiling-camera-modern-barbershop_1303-20974.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Antoine Laurent</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Senior Hair Sculptor</p></div></div></div></div></GridOrCarousel></ScrollReveal></div></section></div>
-      <div data-webild-section="ContactSplitForm"><ContactSplitForm
-        tag="Reserve Your Experience"
-        title="Book Your Signature Salon Session"
-        description="Choose your desired hair or beauty package and preferred specialist. Let Vinto Global elevate your personal style in luxury."
-        inputs={[{"name":"fullName","type":"text","placeholder":"Your full name","required":true},{"name":"email","type":"email","placeholder":"Your email address","required":true},{"name":"phone","type":"tel","placeholder":"Phone number","required":true},{"name":"service","type":"text","placeholder":"Select service (e.g. Signature Cut)","required":true},{"name":"specialist","type":"text","placeholder":"Preferred stylist or specialist","required":false},{"name":"appointmentDate","type":"date","placeholder":"Preferred date","required":true}]}
-        textarea={{"name":"specialNotes","placeholder":"Hair condition notes, allergies, or custom styling requests...","rows":3,"required":false}}
-        buttonText="Confirm & Reserve"
-        imageSrc="https://img.freepik.com/free-photo/hairdresser-brushing-customer-hair-beauty-salon_23-2148834928.jpg"
-        textAnimation="fade-blur"
-      /></div>
-    </>
+    <div className="min-h-screen bg-background text-foreground">
+      <NavbarCentered logo="Apex Gaming" navItems={navItems} ctaButton={{ text: "Book Station", href: "#packages" }} />
+      <HeroSplit
+        tag="ONLINE RESERVATIONS"
+        title="Reserve Your Ultimate Gaming Station"
+        description="Select your preferred gaming setup, choose a dedicated coach or host, and process payment securely before you arrive."
+        primaryButton={{ text: "Select Package", href: "#packages" }}
+        secondaryButton={{ text: "Choose Staff", href: "#staff" }}
+        imageSrc="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=80"
+        textAnimation="slide-up"
+      />
+      <div id="services">
+        <FeaturesTaggedCards
+          tag="STEP 1: SELECT SERVICE"
+          title="Choose Your Gaming Experience"
+          description="High-spec PC rigs, motion VR pods, or private console suites tailored to your gaming style."
+          items={services}
+          textAnimation="slide-up"
+        />
+      </div>
+      <div id="staff">
+        <TeamProfileCards
+          tag="STEP 2: CHOOSE STAFF"
+          title="Select a Dedicated Game Master"
+          description="Enhance your session with pro coaching, tournament setup, or dedicated host assistance."
+          items={staff}
+          textAnimation="slide-up"
+        />
+      </div>
+      <div id="packages">
+        <PricingSimpleCards
+          tag="STEP 3: SECURE PAYMENT"
+          title="Select Duration & Pay Online"
+          description="Lock in your session time instantly with our SSL-encrypted checkout system."
+          plans={packages}
+          textAnimation="slide-up"
+        />
+      </div>
+      <div id="faq">
+        <FaqSimple
+          tag="NEED HELP?"
+          title="Booking & Payment FAQ"
+          description="Common questions about instant online reservations and venue arrivals."
+          items={faqs}
+          textAnimation="slide-up"
+        />
+      </div>
+      <FooterSimple
+        brand="Apex Gaming"
+        columns={[
+          { title: "Booking", items: [{ label: "PC Arena", href: "#services" }, { label: "VR Pods", href: "#services" }] },
+          { title: "Company", items: [{ label: "About Us", href: "/about" }, { label: "Contact", href: "/contact" }] },
+        ]}
+        copyright="© 2025 Apex Gaming Lounge. All rights reserved."
+        links={[{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Service", href: "/terms" }]}
+      />
+    </div>
   );
 }
