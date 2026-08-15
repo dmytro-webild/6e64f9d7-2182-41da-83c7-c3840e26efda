@@ -66,7 +66,7 @@ export default function Layout() {
       </main>
       <SectionErrorBoundary name="footer">
         <FooterSimpleMedia
-      brand="HubServices"
+      brand="Vinto Global"
       columns={[
         {
           title: "Company",
@@ -95,7 +95,7 @@ export default function Layout() {
           ],
         },
       ]}
-      copyright="© 2024 HubServices. All rights reserved."
+      copyright="© 2024 Vinto Global. All rights reserved."
       links={[
         {
           label: "Twitter",
