@@ -1,93 +1,45 @@
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
-import HeroSplit from "@/components/sections/hero/HeroSplit";
-import FeaturesDetailedSteps from "@/components/sections/features/FeaturesDetailedSteps";
-import TeamProfileCards from "@/components/sections/team/TeamProfileCards";
+import Button from "@/components/ui/Button";
+import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
+import TextAnimation from "@/components/ui/TextAnimation";
+import ImageOrVideo from "@/components/ui/ImageOrVideo";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { Check } from "lucide-react";
+import GridOrCarousel from "@/components/ui/GridOrCarousel";
+import { cls } from "@/lib/utils";
 import ContactSplitForm from "@/components/sections/contact/ContactSplitForm";
-import FooterSimple from "@/components/sections/footer/FooterSimple";
 
 export default function BookingPage() {
-  const steps = [
-    { tag: "01", title: "Select Service", subtitle: "Hair, Nails & Spa", description: "Choose from our signature salon treatments tailored to your exact beauty needs." },
-    { tag: "02", title: "Pick Stylist", subtitle: "Expert Professionals", description: "Select your preferred senior stylist or beauty specialist for a personalized session." },
-    { tag: "03", title: "Reserve & Pay", subtitle: "Instant Confirmation", description: "Secure your time slot online with seamless contactless payment processing." }
-  ];
-
-  const stylists = [
-    { title: "Elena Rostova", description: "Master Colorist & Hair Architect with 10+ years of studio experience.", avatarSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" },
-    { title: "Marcus Vance", description: "Creative Cut & Styling Director specializing in precision modern cuts.", avatarSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80" },
-    { title: "Sophia Chen", description: "Nail Artistry & Aesthetics Specialist dedicated to luxury care.", avatarSrc: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&auto=format&fit=crop&q=80" }
-  ];
-
-  const formInputs = [
-    { name: "name", type: "text", placeholder: "Your Full Name", required: true },
-    { name: "email", type: "email", placeholder: "Email Address", required: true },
-    { name: "date", type: "date", placeholder: "Preferred Date", required: true }
-  ];
-
-  const footerCols = [
-    { title: "Services", items: [{ label: "Hair Care", href: "#" }, { label: "Nail Care", href: "#" }, { label: "Spa & Facial", href: "#" }] },
-    { title: "Company", items: [{ label: "About Us", href: "#" }, { label: "Stylists", href: "#" }, { label: "Careers", href: "#" }] }
-  ];
-
-  const footerLinks = [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" }
-  ];
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <NavbarCentered
-        logo="LuxeSalon"
-        navItems={routes.map((r) => ({ name: r.label, href: r.path }))}
-        ctaButton={{ text: "Book Now", href: "#reserve" }}
-      />
-
-      <HeroSplit
-        tag="ONLINE APPOINTMENTS"
-        title="Reserve Your Beauty Experience in Minutes"
-        description="Pick your desired service, select your favorite specialist, and confirm instantly with secure digital checkout."
-        primaryButton={{ text: "Book Appointment", href: "#reserve" }}
-        secondaryButton={{ text: "Explore Services", href: "#services" }}
-        imageSrc="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&auto=format&fit=crop&q=80"
-        textAnimation="slide-up"
-      />
-
-      <FeaturesDetailedSteps
-        tag="HOW IT WORKS"
-        title="Three Simple Steps to Glamour"
-        description="Our streamlined reservation system makes scheduling effortless and fast."
-        steps={steps}
-        textAnimation="slide-up"
-      />
-
-      <TeamProfileCards
-        tag="OUR TEAM"
-        title="Meet Our Master Stylists"
-        description="Choose from our team of industry-leading beauty artisans."
-        items={stylists}
-        textAnimation="slide-up"
-      />
-
-      <div id="reserve">
-        <ContactSplitForm
-          tag="INSTANT RESERVATION"
-          title="Schedule Your Session Today"
-          description="Fill out your details below to finalize your booking and secure your appointment."
-          inputs={formInputs}
-          textarea={{ name: "notes", placeholder: "Special requests or service preferences...", rows: 3 }}
-          buttonText="Confirm & Pay Online"
-          imageSrc="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1000&auto=format&fit=crop&q=80"
-          textAnimation="slide-up"
-        />
-      </div>
-
-      <FooterSimple
-        brand="LuxeSalon"
-        columns={footerCols}
-        copyright="© 2025 LuxeSalon. All rights reserved."
-        links={footerLinks}
-      />
-    </div>
+    <>
+      <div data-webild-section="HeroSplit"><section aria-label="Hero section" className="relative flex items-center h-fit md:h-svh pt-25 pb-20 md:py-0"><HeroBackgroundSlot /><div className="flex flex-col md:flex-row items-center gap-12 md:gap-20 w-content-width mx-auto"><div className="w-full md:w-1/2"><div className="flex flex-col items-center md:items-start gap-3"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Vinto Salon Booking</p></div><TextAnimation text="Reserve Your Signature Beauty Experience" variant="fade-blur" gradientText={true} tag="h1" className="text-7xl 2xl:text-8xl leading-[1.15] font-semibold text-center md:text-left text-balance" /><TextAnimation text="Select your preferred specialists, customize signature styling packages, and confirm your appointment with effortless online booking." variant="fade-blur" gradientText={false} tag="p" className="md:max-w-8/10 text-lg md:text-xl leading-snug text-center md:text-left text-balance" /><div className="flex flex-wrap max-md:justify-center gap-3 mt-2 md:mt-3"><Button text="Book Appointment" href="#booking-services" variant="primary" /><Button text="Explore Stylists" href="#stylists" variant="secondary" animationDelay={0.1} /></div></div></div><ScrollReveal variant="fade-blur" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh] p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/modern-hair-salon-interior_23-2149302630.jpg" /></ScrollReveal></div></section></div>
+      <div data-webild-section="PricingHighlightedCards"><section aria-label="Pricing section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center w-content-width mx-auto gap-2"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Salon Packages</p></div><TextAnimation text="Signature Beauty & Hair Packages" variant="fade-blur" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Select your ideal beauty experience and lock in your appointment seamlessly with our master stylists." variant="fade-blur" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="View Specialists" href="#specialists" variant="primary" /><Button text="Contact Salon" href="/contact" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade"><GridOrCarousel><div key="Express Care" className="flex flex-col h-full"><div className="px-5 py-2 text-base invisible">placeholder</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$120</span><span className="text-base font-medium">Express Care</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Signature Scalp Wash & Blowout" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Signature Scalp Wash & Blowout</span></div>
+<div key="Express Hydrating Facial" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Express Hydrating Facial</span></div>
+<div key="Classic Nail Shaping & Polish" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Classic Nail Shaping & Polish</span></div>
+<div key="Senior Stylist Consultation" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Senior Stylist Consultation</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve Essential" href="#book-essential" variant="primary" className="w-full" /></div></div></div>
+<div key="Signature Package" className="flex flex-col h-full"><div className="px-5 py-2 text-base text-center primary-button rounded-t text-primary-cta-text">Most Popular</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded-t-none rounded-b"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$280</span><span className="text-base font-medium">Signature Package</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Bespoke Color or Balayage" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Bespoke Color or Balayage</span></div>
+<div key="Restorative Keratin Glaze" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Restorative Keratin Glaze</span></div>
+<div key="Full Gel Manicure & Lash Lift" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Full Gel Manicure & Lash Lift</span></div>
+<div key="Reserved Master Specialist" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Reserved Master Specialist</span></div>
+<div key="Complimentary Lounge Refreshments" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Complimentary Lounge Refreshments</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve Signature" href="#book-signature" variant="primary" className="w-full" /></div></div></div>
+<div key="VIP Immersion" className="flex flex-col h-full"><div className="px-5 py-2 text-base invisible">placeholder</div><div className="flex flex-col items-center gap-4 xl:gap-5 2xl:gap-6 p-6 xl:p-7 2xl:p-8 flex-1 card text-center rounded"><div className="flex flex-col gap-1"><span className="text-5xl md:text-6xl font-semibold">$450</span><span className="text-base font-medium">VIP Immersion</span></div><div className="h-px w-full bg-foreground/20" /><div className="flex flex-col gap-3 w-full"><div key="Full Scalp & Hair Repair Therapy" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Full Scalp & Hair Repair Therapy</span></div>
+<div key="Deep Hydration Body Polish" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Deep Hydration Body Polish</span></div>
+<div key="Couture Styling & Evening Makeup" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Couture Styling & Evening Makeup</span></div>
+<div key="Private VIP Suite Reserved" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Private VIP Suite Reserved</span></div>
+<div key="Dedicated Lead Beauty Director" className="flex items-start gap-3"><div className="flex items-center justify-center shrink-0 size-6 primary-button rounded"><Check className="size-3 text-primary-cta-text" strokeWidth={2} /></div><span className="text-base text-left">Dedicated Lead Beauty Director</span></div></div><div className="flex flex-col gap-3 w-full mt-auto"><Button text="Reserve VIP Suite" href="#book-vip" variant="primary" className="w-full" /></div></div></div></GridOrCarousel></ScrollReveal></div></section></div>
+      <div data-webild-section="TeamOverlayCards"><section aria-label="Team section" className="py-20"><div className="flex flex-col gap-8 md:gap-10"><div className="flex flex-col items-center gap-2 w-content-width mx-auto"><div className="px-3 py-1 mb-1 text-sm card rounded w-fit"><p>Master Stylists</p></div><TextAnimation text="Meet Our Signature Salon Specialists" variant="slide-up" gradientText={true} tag="h2" className="md:max-w-8/10 text-6xl 2xl:text-7xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Select your preferred specialist to craft a bespoke styling, coloring, or aesthetic treatment tailored to your distinct look." variant="slide-up" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-center text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Book Appointment" href="#booking-form" variant="primary" /><Button text="Explore Services" href="#services" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade-blur"><GridOrCarousel><div key="Elena Rostova" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/portrait-beautiful-woman-hairdresser-salon_23-2149151159.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Elena Rostova</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Creative Director & Hair Artist</p></div></div></div></div>
+<div key="Marcus Vance" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/man-barber-hairdresser-barbershop_1303-20978.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Marcus Vance</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Master Color Specialist</p></div></div></div></div>
+<div key="Sophia Chen" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/young-beautiful-woman-cosmetologist-beauty-salon_1303-25541.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Sophia Chen</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Aesthetic & Skin Therapist</p></div></div></div></div>
+<div key="Antoine Laurent" className="relative aspect-4/5 card rounded"><div className="relative w-full h-full rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/handsome-barber-smiling-camera-modern-barbershop_1303-20974.jpg" /><div className="absolute inset-x-4 bottom-4 xl:inset-x-5 xl:bottom-5 2xl:inset-x-6 2xl:bottom-6 flex items-center justify-between gap-4 xl:gap-5 2xl:gap-6 p-4 xl:p-5 2xl:p-6 card backdrop-blur-sm rounded"><span className="text-xl font-semibold leading-snug truncate">Antoine Laurent</span><div className="px-3 py-2 text-sm primary-button text-primary-cta-text rounded"><p className="truncate">Senior Hair Sculptor</p></div></div></div></div></GridOrCarousel></ScrollReveal></div></section></div>
+      <div data-webild-section="ContactSplitForm"><ContactSplitForm
+        tag="Reserve Your Experience"
+        title="Book Your Signature Salon Session"
+        description="Choose your desired hair or beauty package and preferred specialist. Let Vinto Global elevate your personal style in luxury."
+        inputs={[{"name":"fullName","type":"text","placeholder":"Your full name","required":true},{"name":"email","type":"email","placeholder":"Your email address","required":true},{"name":"phone","type":"tel","placeholder":"Phone number","required":true},{"name":"service","type":"text","placeholder":"Select service (e.g. Signature Cut)","required":true},{"name":"specialist","type":"text","placeholder":"Preferred stylist or specialist","required":false},{"name":"appointmentDate","type":"date","placeholder":"Preferred date","required":true}]}
+        textarea={{"name":"specialNotes","placeholder":"Hair condition notes, allergies, or custom styling requests...","rows":3,"required":false}}
+        buttonText="Confirm & Reserve"
+        imageSrc="https://img.freepik.com/free-photo/hairdresser-brushing-customer-hair-beauty-salon_23-2148834928.jpg"
+        textAnimation="fade-blur"
+      /></div>
+    </>
   );
 }
