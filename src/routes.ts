@@ -8,4 +8,5 @@ export const routes: Route[] = [
   { path: '/', label: 'Home', pageFile: 'HomePage' },
   { path: '/complaint', label: 'Complaint', pageFile: 'ComplaintPage' },
   { path: '/laundry-drop-off', label: 'Laundry Drop Off', pageFile: 'LaundryDropOffPage' },
+  { path: '/booking', label: 'Booking', pageFile: 'BookingPage' },
 ];

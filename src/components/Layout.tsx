@@ -37,6 +37,8 @@ export default function Layout() {
   },
   { name: "Complaint", href: "/complaint" },
   { name: "Laundry Drop Off", href: "/laundry-drop-off" },
+  { name: "Booking", href: "/booking" },
+
 
 
 ];
