@@ -7,6 +7,7 @@ import LaundryDropOffPage from "@/pages/LaundryDropOffPage";
 import BookingPage from "@/pages/BookingPage";
 import PricingPage from "@/pages/PricingPage";
 import GetStartedPage from "@/pages/GetStartedPage";
+import SalonBookingPage from "@/pages/SalonBookingPage";
 export default function App() {
   return (
     <Routes>
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/get-started" element={<GetStartedPage />} />
+        <Route path="/salon-booking" element={<SalonBookingPage />} />
       </Route>
     </Routes>
   );
