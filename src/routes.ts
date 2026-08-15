@@ -13,4 +13,5 @@ export const routes: Route[] = [
   { path: '/get-started', label: 'Get Started', pageFile: 'GetStartedPage' },
   { path: '/salon-booking', label: 'Salon Booking', pageFile: 'SalonBookingPage' },
   { path: '/services', label: 'Services', pageFile: 'ServicesPage' },
+  { path: '/about', label: 'About', pageFile: 'AboutPage' },
 ];

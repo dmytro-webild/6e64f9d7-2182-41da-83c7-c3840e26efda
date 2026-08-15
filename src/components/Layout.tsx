@@ -43,6 +43,8 @@ export default function Layout() {
   { name: "Get Started", href: "/get-started" },
   { name: "Salon Booking", href: "/salon-booking" },
   { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+
 
 
 
