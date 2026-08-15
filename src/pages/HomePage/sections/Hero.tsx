@@ -16,7 +16,7 @@ export default function HeroSection(): React.JSX.Element {
           title="Laundry, Styling & Gaming — All Under One Roof."
           description="Seamlessly manage laundry, refresh your style in our salon, and unwind in our premium gaming lounge."
           primaryButton={{
-            text: "Book Now",        href: "#contact"}}
+            text: "Book Your Session",        href: "#contact"}}
           secondaryButton={{
             text: "Our Services",        href: "#services"}}
           names={[
