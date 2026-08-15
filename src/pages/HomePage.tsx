@@ -37,7 +37,7 @@ export default function HomePage() {
         "Salon",
         "Gaming",
       ]}
-      imageSrc="http://img.b2bpic.net/free-photo/drum-closeup-perforation-symmetry-modern-dryer_169016-69505.jpg"
+      imageSrc="http://img.b2bpic.net/free-photo/drum-closeup-perforation-symmetry-modern-dryer_169016-69505.jpg?_wi=1"
       textAnimation="slide-up"
     />
     </SectionErrorBoundary>
@@ -62,7 +62,7 @@ export default function HomePage() {
         {
           title: "Premium Laundry",
           description: "Eco-friendly, fast, and reliable.",
-          imageSrc: "http://img.b2bpic.net/free-photo/shirts-jackets-hangers-closet-capsule-wardrobe_169016-71050.jpg",
+          imageSrc: "http://img.b2bpic.net/free-photo/shirts-jackets-hangers-closet-capsule-wardrobe_169016-71050.jpg?_wi=1",
         },
         {
           title: "Style Salon",
@@ -203,7 +203,7 @@ export default function HomePage() {
               imageSrc: "http://img.b2bpic.net/free-photo/woman-choosing-clothes-from-clothes-rack_1170-816.jpg",
             },
           ],
-          imageSrc: "http://img.b2bpic.net/free-photo/drum-closeup-perforation-symmetry-modern-dryer_169016-69505.jpg",
+          imageSrc: "http://img.b2bpic.net/free-photo/drum-closeup-perforation-symmetry-modern-dryer_169016-69505.jpg?_wi=2",
           imageAlt: "professional hairdresser portrait",
         },
         {
@@ -216,7 +216,7 @@ export default function HomePage() {
               imageSrc: "http://img.b2bpic.net/free-photo/data-center-software-developer-using-pc-monitor-neural-network-ai-visualization-woman-working_482257-135341.jpg",
             },
           ],
-          imageSrc: "http://img.b2bpic.net/free-photo/shirts-jackets-hangers-closet-capsule-wardrobe_169016-71050.jpg",
+          imageSrc: "http://img.b2bpic.net/free-photo/shirts-jackets-hangers-closet-capsule-wardrobe_169016-71050.jpg?_wi=2",
           imageAlt: "professional hairdresser portrait",
         },
       ]}
