@@ -73,7 +73,7 @@ export default function BookingPage() {
       duration: "120 mins",
       description: "Hand-painted dimensional highlights, bond-building gloss finish, and signature blowout.",
       popular: true,
-      imageSrc: "https://picsum.photos/seed/684527839/1200/800",
+      imageSrc: "https://picsum.photos/seed/684527839/1200/800?_wi=1",
     },
     {
       id: "precision-cut",
@@ -95,7 +95,7 @@ export default function BookingPage() {
       duration: "60 mins",
       description: "Deep enzyme exfoliation, lymphatic face massage, collagen infusion, and organic scalp mask.",
       popular: true,
-      imageSrc: "https://picsum.photos/seed/2122531894/1200/800",
+      imageSrc: "https://picsum.photos/seed/2122531894/1200/800?_wi=1",
     },
     {
       id: "gel-manicure",
@@ -599,7 +599,7 @@ export default function BookingPage() {
               title: "Select Treatment",
               subtitle: "Transparent Service Menu",
               description: "Browse our menu of hair, skin, and nail services with exact duration and clear deposit pricing.",
-              imageSrc: "https://picsum.photos/seed/684527839/1200/800",
+              imageSrc: "https://picsum.photos/seed/684527839/1200/800?_wi=2",
             },
             {
               tag: "Step 02",
@@ -613,7 +613,7 @@ export default function BookingPage() {
               title: "Upfront Deposit",
               subtitle: "Instant Chair Confirmation",
               description: "Lock in your slot with a minimal deposit. Walk in at your time and enjoy immediate VIP service.",
-              imageSrc: "https://picsum.photos/seed/2122531894/1200/800",
+              imageSrc: "https://picsum.photos/seed/2122531894/1200/800?_wi=2",
             },
           ]}
         />
